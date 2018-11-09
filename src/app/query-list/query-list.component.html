@@ -1,0 +1,16 @@
+<input type="color" [(ngModel)]='SelectedColor'>
+<span [appCustomHover]='SelectedColor'> this is custom directive expample</span>
+<br>
+<p>This is view child and viewChildren example</p>
+<app-viewchild>
+  <app-view-child-msg></app-view-child-msg>
+</app-viewchild>
+<app-viewchild>
+  <app-view-child-msg></app-view-child-msg>
+</app-viewchild>
+<app-viewchild>
+  <app-view-child-msg></app-view-child-msg>
+</app-viewchild>
+
+<button (click)="sendMsg()">Send msg to children through viewchild</button>
+<button (click)="sendMsg2()">Send msg to 2 instance of children through viewchildrens</button>

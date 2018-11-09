@@ -1,0 +1,61 @@
+Welcome to {{ title }} ,<br>
+
+ {{ message }}
+<h2 [ngClass]="messageClass"> Hello {{userName}}</h2>
+<h2 [style.color]="'red'">{{userName}}</h2>
+<h2 [style.color]="haserror ? 'red' : 'green'">{{userName}}</h2>
+<h2 [ngStyle]="customeStyle">{{userName}}</h2>
+
+
+<input #myinput type="text" [(ngModel)]="userName"  >
+<button (click)="onClick()" >Click me  </button><br>
+{{userName}}
+
+<h2 *ngIf="haserror; else elseblock1" >
+  error occure
+</h2>
+<ng-template #elseblock1>
+  <h2>no error</h2>
+</ng-template>
+
+<div *ngIf="haserror; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+  <h2>sucess block </h2>
+</ng-template>
+<ng-template #elseBlock>
+  <h2>error block </h2>
+</ng-template>
+
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'">you selected red</div>
+  <div *ngSwitchCase="'green'">you selected green</div>
+  <div *ngSwitchCase="'yellow'">you selected yellow</div>
+  <div *ngSwitchDefault>No color selected</div>
+</div>
+
+<div *ngFor="let month of months; index as i; even as e ; odd as o">
+  <h3></h3>
+</div>
+
+<app-test (childEvent)="message=$event" [parentData] = "userName" >
+</app-test>
+<br>
+<p> Split data binding</p>
+<!-- <input type="text" [ngModel]="userName" (ngModelChange)="userName=$event"> -->
+<input type="text" [ngModel]="userName" (ngModelChange)="validate($event)">
+{{ userName }}
+<p> getter and setter</p>
+<input type="text" [(ngModel)]="privateName">
+{{ privateName}}
+<p> @viewChild example</p>
+
+<div>
+  <label>User Name</label>
+  <input #nameRef type="text" [(ngModel)]="userName">
+</div>
+<div>
+    <label>age</label>
+    <input type="text" >
+  </div>
+<p>Custome Pipe example </p>
+<p>super power boast {{ 2 | mycustomePipeName: 4 }}</p>

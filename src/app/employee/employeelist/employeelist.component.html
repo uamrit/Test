@@ -1,0 +1,13 @@
+<h2>Employee List</h2>
+<h3>{{ errorMsg}}</h3>
+
+<div *ngFor="let emp of employee">
+ <span>{{emp.id}}</span>
+ <span>{{emp.name}}</span>
+ <span>{{emp.age}}</span>
+</div>
+
+<br>
+<app-employee-details>
+  <p>I am in tag</p>
+</app-employee-details>
