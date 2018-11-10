@@ -9,7 +9,7 @@ import { OverwiewComponent } from './department/overwiew/overwiew.component';
 import { ContactComponent } from './department/contact/contact.component';
 import { BootcampDetailsComponent } from './bootcamp/bootcamp-details/bootcamp-details.component';
 import { BootcampListComponent } from './bootcamp/bootcamp-list/bootcamp-list.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
 import { QueryListComponent } from './query-list/query-list.component';
 import { SubjectComponent } from './subject/subject.component';
 import { RxjsComponent } from './rxjs/rxjs.component';

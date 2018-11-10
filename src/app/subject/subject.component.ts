@@ -15,7 +15,6 @@ export class SubjectComponent implements OnInit {
 
   updatePropValue() {
     this.employeeService.setProp('updated value');
-
   }
 
 }

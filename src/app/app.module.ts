@@ -16,7 +16,7 @@ import { OverwiewComponent } from './department/overwiew/overwiew.component';
 import { ContactComponent } from './department/contact/contact.component';
 import { BootcampDetailsComponent } from './bootcamp/bootcamp-details/bootcamp-details.component';
 import { BootcampListComponent } from './bootcamp/bootcamp-list/bootcamp-list.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
 import { SharedComponent } from './shared/shared.component';
 import { CustomeAttributeDirective } from './directive/custom-attribute.directive';
 import { ViewchildComponent } from './ViewChild/viewchild/viewchild.component';
@@ -53,7 +53,7 @@ import { ExpontialStrengthPipe } from './basic/expontial-strength.pipe';
     ChildBComponent,
     RxjsComponent,
     ExpontialStrengthPipe
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

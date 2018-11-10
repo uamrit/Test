@@ -1,0 +1,67 @@
+<p>
+  This is Reactive form example.
+</p>
+{{ registrationForm.value | json}}
+<div class="container-fluid">
+  <form [formGroup]="registrationForm">
+    <div class="form-group">
+      <label>User Name</label>
+      <input formControlName="userName"
+       [class.is-invalid]="userName.invalid && userName.touched"  type="text" class="form-control">
+       <div *ngIf="userName.invalid && userName.touched">
+         <div class="text-danger" *ngIf="userName.errors?.required">User Name is required.</div>
+         <div class="text-danger" *ngIf="userName.errors?.minlength">User Name should be atleast 3 char .</div>
+         <div class="text-danger" *ngIf="userName.errors.forbiddenName">{{ userName.errors?.forbiddenName.value }} not allowed as user Name. </div>
+       </div>
+    </div>
+    <div class="form-group">
+        <label>email</label>
+        <input formControlName="email"
+         [class.is-invalid]="email.invalid && email.touched"  type="text" class="form-control">
+         <div class="text-danger" [class.d-none]="email.valid || email.untouched">email is requried. </div>
+      </div>
+      <input type="checkbox" formControlName="subscribe">
+    <div class="form-group">
+      <label>Password</label>
+      <input [class.is-invalid]="password.invalid && password.touched" formControlName="password" type="password" class="form-control">
+      <div *ngIf="password.invalid && password.touched">
+        <div class="text-danger" *ngIf="password.errors.required">pasword is required.</div>
+        <div class="text-danger" *ngIf="password.errors.minlength">3 char atleast.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>confirm password</label>
+      <input [class.is-invalid]="registrationForm.errors?.mismatch" formControlName="confirmPassword" type="password" class="form-control">
+      <div class="text-danger" *ngIf="registrationForm.errors?.mismatch">
+        password does not match
+      </div>
+    </div>
+    <div formArrayName="address">
+      <div *ngFor="let group of addressArray.controls; let i = index" [formGroupName]="i">
+        Address {{ i+1 }}
+       <button (click)="addAddress()" class="ml-2">add</button>
+       <button (click)="removeAddress(i)" class="ml-2">remove</button>
+
+      <div class="row">
+      <div class="form-group col-md-4">
+        <label>City</label>
+        <input formControlName="city" type="text" class="form-control">
+      </div>
+      <div class="form-group col-md-4">
+        <label>State</label>
+        <input formControlName="state" type="text"
+        [ngClass]="{'form-control': true,
+        'is-invalid': group.controls.state.invalid && group.controls.state.touched}">
+      </div>
+      <div class="form-group col-md-4">
+        <label>Postal code</label>
+        <input formControlName="postalCode" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-secondary" type="button" (click)="loadData()">load Api Data</button>
+  </form>
+</div>
