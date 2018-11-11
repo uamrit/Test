@@ -3,7 +3,7 @@
 </p>
 {{ registrationForm.value | json}}
 <div class="container-fluid">
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
     <div class="form-group">
       <label>User Name</label>
       <input formControlName="userName"

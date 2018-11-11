@@ -13,10 +13,13 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { QueryListComponent } from './query-list/query-list.component';
 import { SubjectComponent } from './subject/subject.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { AuthGuard } from './Shared/auth-guard.service';
 
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'basics', pathMatch: 'full'},
+ {path: '', redirectTo: 'bootcamp', pathMatch: 'full'},
   {path: 'basics', component: BasicComponent},
   {path: 'employee', component: EmployeelistComponent },
   {path: 'department-list', component: DepartmentListComponent},
@@ -26,12 +29,14 @@ const routes: Routes = [
     {path: 'contact', component: ContactComponent}
   ]
   },
-  {path: 'bootcamp', component: BootcampListComponent},
+  {path: 'bootcamp', component: BootcampListComponent, canActivate: [AuthGuard]},
   {path: 'bootcamp/:id', component: BootcampDetailsComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'querylist', component: QueryListComponent},
   {path: 'subject', component: SubjectComponent},
   {path: 'rxjs', component: RxjsComponent},
+  {path: 'signUp', component: SignUpComponent},
+  {path: 'signIn', component: SignInComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

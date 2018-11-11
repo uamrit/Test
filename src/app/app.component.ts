@@ -7,6 +7,7 @@ import {
   OnInit
 } from '@angular/core';
 import * as firebase from 'firebase';
+import { AuthService } from './Shared/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit {
 
+  constructor (public authService: AuthService) {}
   ngOnInit() {
 // Initialize Firebase
 const config = {
@@ -26,5 +28,9 @@ const config = {
   messagingSenderId: '511080378066'
 };
 firebase.initializeApp(config);
+  }
+
+  onLogOut() {
+    this.authService.logOut();
   }
 }

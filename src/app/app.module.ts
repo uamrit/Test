@@ -27,6 +27,8 @@ import { ChildAComponent } from './subject/child-a/child-a.component';
 import { ChildBComponent } from './subject/child-b/child-b.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ExpontialStrengthPipe } from './basic/expontial-strength.pipe';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ExpontialStrengthPipe } from './basic/expontial-strength.pipe';
     ChildAComponent,
     ChildBComponent,
     RxjsComponent,
-    ExpontialStrengthPipe
+    ExpontialStrengthPipe,
+    SignInComponent,
+    SignUpComponent
     ],
   imports: [
     BrowserModule,

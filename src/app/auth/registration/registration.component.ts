@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { forbiddenNameValidator } from 'src/app/Shared/userName.validator';
 import { PasswordValidator } from 'src/app/Shared/password.validator';
+import { AuthService } from 'src/app/Shared/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,8 @@ import { PasswordValidator } from 'src/app/Shared/password.validator';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
+
   registrationForm: FormGroup;
   // reactive form  using formbuilder
   get userName() {
@@ -86,5 +88,11 @@ export class RegistrationComponent implements OnInit {
       password: 'test',
       confirmPassword: 'test'
     });
+  }
+  // here we have just same the email and password for login
+  submitForm() {
+    console.log(this.registrationForm.value);
+    this.authService.signUpUser(this.registrationForm.get('userName').value, this.registrationForm.get('password').value )
+    .catch( error => console.log(error));
   }
 }

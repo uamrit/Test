@@ -1,11 +1,66 @@
-<nav>
-  <button routerLink='/basics' routerLinkActive='active' class="ml-2">Basics</button>
-  <button routerLink='/department-list' routerLinkActive='active' class="ml-2">Department</button>
-  <button routerLink='/employee' routerLinkActive='active' class="ml-2">employee</button>
-  <button routerLink='/bootcamp' routerLinkActive='active' class="ml-2">TDF</button>
-  <button routerLink='/registration' routerLinkActive='active' class="ml-2">Reactive</button>
-  <button routerLink='/querylist' routerLinkActive='active' class="ml-2">Query List</button>
-  <button routerLink='/subject' routerLinkActive='active' class="ml-2">Subject</button>
-  <button routerLink='/rxjs' routerLinkActive='active' class="ml-2">Rxjs</button>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Logo</a>
+
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <ng-template *ngIf="authService.IsAuthenticated(); then authenicatedBlock; else unAuthenicatedBlock "></ng-template>
+    <ng-template #authenicatedBlock>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/basics" routerLinkActive="active">Basics</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/department-list" routerLinkActive="active" >Department</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/employee" routerLinkActive="active">Employee</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/bootcamp" routerLinkActive="active">TDF</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/registration" routerLinkActive="active">Reactive</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/querylist" routerLinkActive="active">Query List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/subject" routerLinkActive="active">Subject</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/rxjs" routerLinkActive="active">Rxjs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="onLogOut()">Log out</a>
+      </li>
+    </ng-template>
+
+     <ng-template #unAuthenicatedBlock>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signUp" routerLinkActive="active">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signIn" routerLinkActive="active" >Sign In</a>
+      </li>
+    </ng-template>
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbardrop"
+        data-toggle="dropdown"
+      >
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
 </nav>
+
 <router-outlet></router-outlet>
